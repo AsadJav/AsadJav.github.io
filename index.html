@@ -71,7 +71,7 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--acce
 .hero-copy{display:grid;gap:26px;padding-bottom:24px;min-width:0}
 .hero h1{font-size:clamp(46px,7.2vw,92px)}
 .hero h1 em.s{font-size:1.1em}
-.tag{position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:120px}
+.tag{position:relative;text-align:right;padding-top:18px}
 .sub{font-size:17px;color:var(--muted)}
 .sub b{color:var(--ink);font-weight:600;display:block}
 .hero-art{position:relative;display:flex;justify-content:center;align-items:flex-end;min-width:0}
@@ -283,7 +283,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 @media (max-width:960px){
   .hero-grid,.about,.kit,.contact,.proj,.proj.flag,.edu{grid-template-columns:1fr}
   .hero-grid{min-height:0}
-  .tag{position:static;margin-bottom:12px}
+  .tag{text-align:left;padding-top:0;margin-bottom:12px}
   .hero-art{padding-bottom:30px}
   .scroll-btn{display:none}
   .proj .vis{border-right:0;border-bottom:1px solid var(--line);min-height:380px}
