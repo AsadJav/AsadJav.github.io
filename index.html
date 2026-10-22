@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Asad Javed · iOS Developer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Asad Javed Sulemani, native iOS developer in Lahore building with Swift and SwiftUI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: warm paper page, fixed pill nav, numbered chapters (01–06) that follow the career story top to bottom. */
+:root{
+  --bg:#F4F1E8; --surface:#FBF9F3; --card:#FFFFFF; --ink:#10172A; --muted:#5C6273;
+  --line:rgba(16,23,42,.12); --ghost:rgba(16,23,42,.055); --accent:#A96212; --accent-soft:rgba(169,98,18,.12);
+  --phone:#10172A; --screen:#FFFFFF; --screen-2:#F3F1EC;
+  --ring-a:#E2793B; --ring-b:#4C6FE0; --ring-c:#2FA7B8;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --r:22px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F131C; --surface:#151A26; --card:#1A2030; --ink:#EEEAE0; --muted:#9CA1B0;
+  --line:rgba(238,234,224,.12); --ghost:rgba(238,234,224,.045); --accent:#DE9B52; --accent-soft:rgba(222,155,82,.14);
+  --phone:#05070C; --screen:#1C2232; --screen-2:#242B3D; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131C; --surface:#151A26; --card:#1A2030; --ink:#EEEAE0; --muted:#9CA1B0;
+  --line:rgba(238,234,224,.12); --ghost:rgba(238,234,224,.045); --accent:#DE9B52; --accent-soft:rgba(222,155,82,.14);
+  --phone:#05070C; --screen:#1C2232; --screen-2:#242B3D; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.02;letter-spacing:-.035em;text-wrap:balance;font-weight:700}
+p{margin:0}
+em.s{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent);letter-spacing:-.01em}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:10px;vertical-align:middle}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+
+/* nav */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:18px max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px));pointer-events:none}
+.logo{pointer-events:auto;width:46px;height:46px;flex:none;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.02em}
+.logo{position:relative;line-height:1}
+.logo span{position:absolute;right:7px;top:50%;transform:translateY(-50%);color:var(--accent)}
+.pill{pointer-events:auto;display:flex;gap:2px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 8px 30px rgba(16,23,42,.06);overflow-x:auto;scrollbar-width:none;max-width:calc(100vw - 100px)}
+.pill::-webkit-scrollbar{display:none}
+.pill a{font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 15px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.pill a:hover{background:var(--ghost)}
+.pill a.on{background:var(--ink);color:var(--bg)}
+
+/* buttons */
+.btns{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px}
+.btn{display:inline-flex;align-items:center;gap:22px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;font-size:14.5px;padding:17px 22px 17px 26px;border-radius:999px;border:0;cursor:pointer;font-family:inherit;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn .ar{transition:transform .2s}.btn:hover .ar{transform:translateX(4px)}
+.link{font-weight:600;font-size:14.5px;text-decoration:none;border-bottom:1px solid transparent;padding:4px 0}
+.link:hover{border-color:currentColor}
+.chip{display:inline-block;font-size:12.5px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);white-space:nowrap}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-top:110px}
+.ghost{position:absolute;left:50%;top:70px;transform:translateX(-50%);font-weight:800;font-size:clamp(130px,25vw,350px);line-height:.85;letter-spacing:-.06em;color:var(--ghost);white-space:nowrap;pointer-events:none;user-select:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;min-height:600px;padding-bottom:40px}
+.hero-copy{display:grid;gap:26px;padding-bottom:24px;min-width:0}
+.hero h1{font-size:clamp(46px,7.2vw,92px)}
+.hero h1 em.s{font-size:1.1em}
+.tag{position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:120px}
+.sub{font-size:17px;color:var(--muted)}
+.sub b{color:var(--ink);font-weight:600;display:block}
+.hero-art{position:relative;display:flex;justify-content:center;align-items:flex-end;min-width:0}
+.hello{position:absolute;bottom:18px;left:6%;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:12.5px;font-weight:600;box-shadow:0 10px 30px rgba(16,23,42,.1);text-decoration:none;z-index:2;animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.scroll-btn{position:absolute;right:0;bottom:30px;width:52px;height:52px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;text-decoration:none;background:var(--surface)}
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:mq 38s linear infinite}
+.marquee span{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.marquee span i{font-style:normal;color:var(--accent);margin-right:56px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* phone */
+.phone{width:280px;max-width:100%;aspect-ratio:9/19;background:var(--phone);border-radius:46px;padding:11px;box-shadow:0 40px 80px -30px rgba(16,23,42,.45),0 0 0 1px rgba(255,255,255,.06) inset;position:relative;flex:none}
+.phone .scr{width:100%;height:100%;border-radius:36px;background:var(--screen);overflow:hidden;position:relative;display:flex;flex-direction:column}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:#000;z-index:3}
+.sbar{display:flex;justify-content:space-between;padding:13px 24px 0;font-size:12px;font-weight:700;height:40px}
+.app{padding:8px 16px 16px;display:grid;gap:10px;font-size:12px}
+.app .hi{font-size:11px;color:var(--muted)}
+.app .h{font-size:20px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{background:var(--screen-2);border-radius:16px;padding:10px;display:grid;gap:6px}
+.tile small{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.tile b{font-size:15px;letter-spacing:-.02em}
+.ring{--p:70;--c:var(--ring-a);width:40px;height:40px;border-radius:50%;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center}
+.ring::after{content:"";width:30px;height:30px;border-radius:50%;background:var(--screen-2)}
+.bars{display:flex;align-items:flex-end;gap:5px;height:46px}
+.bars i{flex:1;border-radius:4px;background:var(--ring-b);opacity:.85}
+.streak{display:flex;gap:5px}
+.streak i{flex:1;height:22px;border-radius:7px;background:var(--accent-soft);font-style:normal;font-size:9px;display:grid;place-items:center;font-weight:700;color:var(--muted)}
+.streak i.y{background:var(--accent);color:#fff}
+
+/* sections */
+section{scroll-margin-top:90px}
+.sec{padding-block:120px 40px}
+.sec-head{display:grid;gap:14px;margin-bottom:56px}
+.sec-head .num{font-size:13px;font-weight:700;letter-spacing:.14em}
+.sec-head .num b{color:var(--accent)}
+.sec-head h2{font-size:clamp(42px,6.4vw,84px)}
+.sec-head p.lead{font-size:18px;color:var(--muted);max-width:52ch}
+
+/* about */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}
+.about-copy{display:grid;gap:22px;min-width:0}
+.about-copy h2{font-size:clamp(52px,7.5vw,104px)}
+.about-copy p{font-size:17.5px;color:var(--muted);max-width:60ch}
+.about-copy p b{color:var(--ink);font-weight:600}
+.badge-zone{display:grid;justify-items:center;gap:14px}
+.lanyard{width:2px;height:70px;background:linear-gradient(var(--line),var(--ink))}
+.badge{width:300px;max-width:100%;aspect-ratio:3/4.3;perspective:1200px;cursor:pointer;border:0;background:none;padding:0;font:inherit;color:inherit;margin-top:-6px}
+.badge-in{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.badge.flip .badge-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;background:var(--card);border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(16,23,42,.35);overflow:hidden;display:flex;flex-direction:column;text-align:left}
+.face.back{transform:rotateY(180deg);background:var(--ink);color:var(--bg);padding:26px;gap:14px;justify-content:space-between}
+.face .top{background:var(--ink);color:var(--bg);padding:14px 18px;display:flex;justify-content:space-between;font-size:10.5px;font-weight:700;letter-spacing:.16em}
+.face .slot{width:44px;height:7px;border-radius:5px;background:var(--bg);margin:10px auto 0;opacity:.9}
+.mono{width:120px;height:120px;border-radius:24px;margin:22px auto 14px;background:radial-gradient(circle at 30% 25%,#F0B26B,var(--accent) 55%,#6B3A08);display:grid;place-items:center;color:#fff;font-weight:800;font-size:44px;letter-spacing:-.04em;box-shadow:0 12px 30px -10px rgba(169,98,18,.6)}
+.face .who{text-align:center;display:grid;gap:4px;padding:0 18px}
+.face .who b{font-size:19px;letter-spacing:-.02em}
+.face .who span{font-size:10.5px;letter-spacing:.16em;color:var(--muted);font-weight:600}
+.barcode{margin:auto 18px 18px;height:34px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 9px,var(--ink) 9px 12px,transparent 12px 14px);opacity:.85;border-radius:3px}
+.face .id{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.14em;color:var(--muted);padding:0 18px 14px;font-weight:600}
+.back .big{display:flex;gap:26px}
+.back .big div{display:grid}
+.back .big b{font-size:54px;letter-spacing:-.05em;line-height:1}
+.back .big span{font-size:11px;letter-spacing:.16em;opacity:.7;font-weight:600}
+.back h3{font-size:30px}
+.back h3 em.s{color:#F0B26B}
+.back p{font-size:13.5px;opacity:.75}
+.hint{font-size:12.5px;color:var(--muted)}
+.facts{margin-top:70px;display:grid;grid-template-columns:repeat(4,1fr) 1.4fr;border-top:1px solid var(--line)}
+.fact{padding:22px 22px 6px 0;display:grid;gap:6px;align-content:start;min-width:0}
+.fact small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.fact b{font-size:17px;font-weight:600;line-height:1.35}
+.quote{padding:22px 0 6px;font-family:var(--serif);font-style:italic;font-size:30px;line-height:1.15;display:grid;gap:10px}
+.quote small{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:600}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:start}
+.kit-copy{display:grid;gap:26px;min-width:0}
+.kit-copy h2{font-size:clamp(42px,6.4vw,84px)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{font:inherit;font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.detail{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:10px;min-height:170px}
+.detail .cat{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.detail h3{font-size:30px}
+.detail p{color:var(--muted)}
+.also{display:grid;gap:12px}
+.also div{display:flex;flex-wrap:wrap;gap:8px}
+.kit .phone{width:340px;margin:0 auto}
+.home{padding:6px 18px 18px;display:grid;gap:14px}
+.home .ttl{font-size:10px;letter-spacing:.16em;font-weight:700;color:var(--muted)}
+.home .ttl b{display:block;font-size:22px;letter-spacing:-.03em;color:var(--ink);text-transform:none;line-height:1.1;margin-top:4px}
+.home .ttl b em.s{font-size:1.05em}
+.icons{display:grid;grid-template-columns:repeat(5,1fr);gap:12px 6px}
+.ico{border:0;background:none;padding:0;cursor:pointer;display:grid;justify-items:center;gap:5px;font:inherit;color:var(--ink);transition:opacity .25s,transform .2s;min-width:0}
+.ico .sq{width:46px;height:46px;border-radius:13px;font-size:15px!important;display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px;letter-spacing:-.03em;box-shadow:0 6px 14px -6px rgba(0,0,0,.35)}
+.ico span{font-size:9px;font-weight:600;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.ico:hover{transform:translateY(-3px)}
+.ico.dim{opacity:.18}
+.ico.sel .sq{outline:2.5px solid var(--accent);outline-offset:2px}
+
+/* work */
+.projects{display:grid;gap:28px}
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.proj .vis{background:var(--surface);position:relative;min-height:440px;display:grid;place-items:center;padding:40px 24px;border-right:1px solid var(--line);overflow:hidden}
+.proj .vis .lbl{position:absolute;top:20px;left:22px;font-size:10.5px;letter-spacing:.18em;font-weight:700;color:var(--muted)}
+.proj .vis .phone{width:230px;border-radius:40px;padding:9px}
+.proj .vis .phone .scr{border-radius:32px}
+.proj .info{padding:40px;display:grid;gap:18px;align-content:start;min-width:0}
+.proj .meta{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.proj .meta .arrow{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;text-decoration:none;flex:none}
+.proj h3{font-size:clamp(32px,4vw,48px)}
+.proj p{color:var(--muted);font-size:16.5px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.proj.flag{grid-template-columns:1.1fr .9fr}
+.flow{display:grid;gap:12px;width:100%;max-width:330px}
+.flow .node{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:grid;gap:2px;box-shadow:0 10px 30px -18px rgba(16,23,42,.3)}
+.flow .node small{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:700;text-transform:uppercase}
+.flow .node code{font-family:ui-monospace,Menlo,monospace;font-size:13px;overflow-wrap:anywhere}
+.flow .node.a{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.flow .node.a small{color:inherit;opacity:.65}
+.flow .arr{justify-self:center;color:var(--accent);font-weight:700}
+.ble{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;width:100%;max-width:380px}
+.dev{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 14px;display:grid;gap:8px;justify-items:center;text-align:center}
+.dev .ic{width:54px;height:54px;border-radius:16px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-size:22px}
+.dev b{font-size:14px}
+.dev small{font-size:11px;color:var(--muted);line-height:1.35}
+.waves{display:grid;gap:5px;justify-items:center}
+.waves i{display:block;height:2px;width:46px;background:var(--accent);border-radius:2px;animation:pulse 1.6s ease-in-out infinite}
+.waves i:nth-child(2){animation-delay:.2s;width:34px}.waves i:nth-child(3){animation-delay:.4s;width:22px}
+@keyframes pulse{50%{opacity:.25}}
+.ble-cap{grid-column:1/-1;text-align:center;font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+.more-head{margin-top:40px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:14px;align-content:start;min-width:0}
+.mini .viz{background:var(--surface);border:1px solid var(--line);border-radius:16px;height:170px;display:grid;place-items:center;padding:16px;overflow:hidden}
+.mini .txt{display:grid;gap:10px;padding:4px 10px 12px}
+.mini h3{font-size:26px}
+.mini p{color:var(--muted);font-size:15px}
+.pros{display:grid;gap:7px;width:100%;max-width:230px}
+.pros div{display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:7px 12px;font-size:12.5px;font-weight:600}
+.pros div span{color:var(--accent);font-size:11.5px}
+.vcard{width:200px;max-width:100%;aspect-ratio:1.6;border-radius:16px;background:linear-gradient(135deg,var(--ink),#2B3A5E);color:#F4F1E8;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 18px 30px -16px rgba(16,23,42,.6);transform:rotate(-4deg)}
+.vcard small{font-size:9.5px;letter-spacing:.18em;font-weight:700;opacity:.7}
+.vcard b{font-size:15px;letter-spacing:-.01em}
+.vcard .row{display:flex;justify-content:space-between;align-items:flex-end;font-size:20px}
+.ledger{width:100%;max-width:250px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:11.5px}
+.ledger .bar{display:flex;gap:4px;padding:7px 10px;border-bottom:1px solid var(--line)}
+.ledger .bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.ledger .r{display:flex;justify-content:space-between;gap:8px;padding:7px 10px;border-bottom:1px solid var(--line)}
+.ledger .r:last-child{border-bottom:0}
+.ledger .r span:last-child{color:var(--accent);font-weight:700;white-space:nowrap}
+
+/* journey */
+.timeline{display:grid;gap:0;position:relative}
+.step{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:44px 0;border-top:1px solid var(--line)}
+.step .yr{font-size:clamp(48px,6vw,76px);font-weight:800;letter-spacing:-.06em;line-height:.9;color:var(--ghost);-webkit-text-stroke:1px var(--line)}
+.step .yr small{display:block;font-size:12px;letter-spacing:.1em;color:var(--muted);-webkit-text-stroke:0;font-weight:600;margin-top:12px;line-height:1.4}
+.step .body{display:grid;gap:14px;min-width:0}
+.step .kind{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--accent)}
+.step h3{font-size:clamp(26px,3vw,36px)}
+.step .org{font-weight:600;color:var(--muted)}
+.step ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:6px;max-width:72ch}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:grid;gap:10px;align-content:start}
+.panel h3{font-size:26px}
+.panel p{color:var(--muted)}
+
+/* moments */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:28px}
+.stat{padding:30px 20px 26px 0;display:grid;gap:4px}
+.stat+.stat{padding-left:24px;border-left:1px solid var(--line)}
+.stat b{font-size:clamp(44px,5.5vw,68px);font-weight:800;letter-spacing:-.06em;line-height:1;font-variant-numeric:tabular-nums}
+.stat b em.s{font-weight:400;font-size:.62em}
+.stat span{color:var(--muted);font-size:14px}
+.mcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mcard{border-radius:var(--r);padding:30px;display:grid;gap:12px;align-content:start;background:var(--card);border:1px solid var(--line);min-height:260px}
+.mcard.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mcard.dark p{opacity:.72;color:inherit}
+.mcard .k{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--accent)}
+.mcard .big{font-size:58px;font-weight:800;letter-spacing:-.06em;line-height:1}
+.mcard h3{font-size:28px;margin-top:auto}
+.mcard p{color:var(--muted)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact h2{font-size:clamp(48px,7vw,96px)}
+.contact-copy{display:grid;gap:26px;min-width:0}
+.contact-copy>p{font-size:18px;color:var(--muted);max-width:44ch}
+.lines{display:grid;border-top:1px solid var(--line)}
+.lines>*{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:18px;font-weight:600;min-width:0}
+.lines>* span:first-child{overflow-wrap:anywhere}
+.copy{font:inherit;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;flex:none}
+.socials{display:flex;flex-wrap:wrap;gap:10px 26px}
+form{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:32px;display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:6px;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);min-width:0}
+input,textarea{font:inherit;font-size:15.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;width:100%}
+textarea{min-height:140px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.form-note{font-size:13px;color:var(--muted)}
+.form-note b{color:var(--accent)}
+footer{margin-top:110px;border-top:1px solid var(--line);padding-block:30px 40px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--muted)}
+
+/* responsive */
+@media (max-width:960px){
+  .hero-grid,.about,.kit,.contact,.proj,.proj.flag,.edu{grid-template-columns:1fr}
+  .hero-grid{min-height:0}
+  .tag{position:static;margin-bottom:12px}
+  .hero-art{padding-bottom:30px}
+  .scroll-btn{display:none}
+  .proj .vis{border-right:0;border-bottom:1px solid var(--line);min-height:380px}
+  .facts{grid-template-columns:1fr 1fr}
+  .quote{grid-column:1/-1}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .mcards,.more{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:16px}
+  .kit .phone{width:320px}
+}
+@media (max-width:560px){
+  .sec{padding-block:90px 20px}
+  .proj .info,form,.panel,.mcard{padding:24px}
+  .row2{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
+  .icons{gap:10px 4px}
+  .ico .sq{width:40px;height:40px;border-radius:11px}
+  .kit .phone{width:300px}
+  .phone{width:260px}
+}
+</style>
+
+<nav class="nav" aria-label="Main">
+  <a class="logo" href="#home" aria-label="Back to top">AJ<span>·</span></a>
+  <div class="pill" id="pill">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#moments">Proud moments</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="ghost" aria-hidden="true">ASAD</div>
+  <div class="wrap" style="position:relative">
+    <div class="eyebrow tag"><span class="dot"></span>Native feel. Shipped to the App Store.</div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Asad Javed · iOS Engineer · Lahore</div>
+        <h1>Native iOS<br>&amp; SwiftUI<br><em class="s">Developer.</em></h1>
+        <p class="sub">Small screens. Thoughtful details.<b>Apps people keep coming back to.</b></p>
+        <div class="btns">
+          <a class="btn" href="#work">Explore work <span class="ar">→</span></a>
+          <a class="link" href="#contact">Let’s talk ↗</a>
+          <a class="link" href="resume.pdf" target="_blank" rel="noopener">Résumé ↓</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <a class="hello" href="#contact">A quick hello ↗</a>
+        <div class="phone" aria-label="A habit and health app screen built in SwiftUI">
+          <div class="scr">
+            <div class="island"></div>
+            <div class="sbar"><span>9:41</span><span>▮▮▮ ▰</span></div>
+            <div class="app">
+              <div><div class="hi">Thursday, 22 October</div><div class="h">Good morning, <em class="s">Asad</em></div></div>
+              <div class="tiles">
+                <div class="tile"><small>Steps</small><div class="ring" style="--p:84;--c:var(--ring-a)"></div><b>8,420</b></div>
+                <div class="tile"><small>Hydration</small><div class="ring" style="--p:72;--c:var(--ring-c)"></div><b>1.8 L</b></div>
+              </div>
+              <div class="tile"><small>Sleep this week</small>
+                <div class="bars"><i style="height:62%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:74%"></i><i style="height:68%"></i><i style="height:86%"></i></div>
+                <b>7h 20m avg</b></div>
+              <div class="tile"><small>Habit streak</small>
+                <div class="streak"><i class="y">M</i><i class="y">T</i><i class="y">W</i><i class="y">T</i><i>F</i><i>S</i><i>S</i></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="scroll-btn" href="#about" aria-label="Scroll to About">↓</a>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>Swift / SwiftUI / UIKit <i>✦</i> Based in Lahore. Building for the world. <i>✦</i> Scroll to meet me ↓ <i>✦</i></span>
+    <span>Swift / SwiftUI / UIKit <i>✦</i> Based in Lahore. Building for the world. <i>✦</i> Scroll to meet me ↓ <i>✦</i></span>
+  </div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-copy">
+        <div class="sec-head" style="margin:0"><div class="num"><b>01</b> — THE PERSON</div><div class="eyebrow">A little context</div></div>
+        <h2>Hi, I’m<br><em class="s">Asad.</em></h2>
+        <p>I’m <b>Asad Javed Sulemani</b>, a native iOS developer with <b>3+ years</b> of designing, building and shipping apps in Swift and SwiftUI. I own the whole lifecycle, from the first screen in Xcode to certificates, provisioning and App Store review.</p>
+        <p>Today I build <b>Primefit</b>, an AI-powered habits and weight-loss app on the App Store. Before that I spent two and a half years at <b>AA’LA Solutions</b> shipping client apps with Core Data, push notifications, StoreKit subscriptions and Bluetooth Low Energy. When a project needs both iPhone and Android, I build it in <b>React Native</b> with Redux Toolkit and Firebase, bridging native modules to Swift where the platform matters.</p>
+        <div class="btns">
+          <a class="link" href="resume.pdf" target="_blank" rel="noopener">Résumé ↓</a>
+          <a class="link" href="https://github.com/AsadJav" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="link" href="https://www.linkedin.com/in/asadjav" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="badge-zone">
+        <div class="lanyard"></div>
+        <button class="badge" id="badge" aria-label="Flip the ID card to see career stats">
+          <div class="badge-in">
+            <div class="face">
+              <div class="top"><span>PRIMEFIT</span><span>iOS ENGINEERING</span></div>
+              <div class="slot"></div>
+              <div class="mono">AJ</div>
+              <div class="who"><b>Asad Javed Sulemani</b><span>iOS APP DEVELOPER</span></div>
+              <div class="barcode"></div>
+              <div class="id"><span>AJ · PORTFOLIO ID</span><span>LHE · PK</span></div>
+            </div>
+            <div class="face back">
+              <div class="eyebrow" style="color:inherit;opacity:.7">The short version</div>
+              <h3>Made in<br><em class="s">Xcode.</em></h3>
+              <div class="big"><div><b>3+</b><span>YEARS</span></div><div><b>8+</b><span>PROJECTS</span></div></div>
+              <p>Live on the App Store. From the first commit to the release notes.</p>
+            </div>
+          </div>
+        </button>
+        <div class="hint">Click the card to flip it.</div>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><small>Based in</small><b>Lahore, Pakistan</b></div>
+      <div class="fact"><small>Currently</small><b>iOS Developer · Primefit</b></div>
+      <div class="fact"><small>Focus</small><b>SwiftUI · HealthKit · BLE</b></div>
+      <div class="fact"><small>Open to</small><b>Full-time, contract &amp; remote</b></div>
+      <div class="quote">“From the first commit to App Store review.”<small>ONE DEVELOPER. THE WHOLE JOURNEY.</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec">
+  <div class="wrap kit">
+    <div class="kit-copy">
+      <div class="sec-head" style="margin:0"><div class="num"><b>02</b> — THE TOOLKIT</div><div class="eyebrow">Made to work together</div></div>
+      <h2>The stack,<br><em class="s">in your pocket.</em></h2>
+      <p class="lead" style="font-size:18px;color:var(--muted);max-width:50ch">Frameworks change every WWDC. The goal stays the same: an app that feels native, stays fast and holds up after the next iOS release.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filter the toolkit">
+        <button class="on" data-f="all">All</button><button data-f="lang">Languages</button><button data-f="ios">iOS frameworks</button><button data-f="rn">React Native</button><button data-f="data">Data &amp; network</button><button data-f="tools">Tools</button><button data-f="practice">Practices</button>
+      </div>
+      <div class="detail" id="detail" aria-live="polite">
+        <div class="cat">Tap an icon</div>
+        <h3>Every icon has a <em class="s">story.</em></h3>
+        <p>Pick a technology on the phone to see where I’ve used it.</p>
+      </div>
+      <div class="also">
+        <div class="eyebrow">Also in the toolkit</div>
+        <div><span class="chip">Core Animation</span><span class="chip">LocalAuthentication</span><span class="chip">URLSession</span><span class="chip">Codable</span><span class="chip">UserDefaults</span><span class="chip">MVC / MVP</span><span class="chip">MVVM-R</span><span class="chip">Native Modules</span><span class="chip">Context API</span><span class="chip">Axios / Fetch</span><span class="chip">UI Testing</span><span class="chip">Universal Links</span><span class="chip">GitLab</span><span class="chip">NPM / Yarn</span><span class="chip">Android Studio</span><span class="chip">VS Code</span></div>
+      </div>
+    </div>
+    <div class="phone">
+      <div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span>▮▮▮ ▰</span></div>
+        <div class="home">
+          <div class="ttl">BUILT FOR EVERY DAY.<b>A pocketful of <em class="s">frameworks.</em></b></div>
+          <div class="icons" id="icons"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="num"><b>03</b> — SELECTED WORK</div>
+      <h2>Things I’ve <em class="s">built.</em></h2>
+      <p class="lead">Consumer apps and developer tools, made for the people on the other side of the screen.</p>
+    </div>
+    <div class="projects">
+      <article class="proj flag">
+        <div class="vis">
+          <span class="lbl">01 / FLAGSHIP · APP STORE</span>
+          <div class="phone">
+            <div class="scr">
+              <div class="island"></div>
+              <div class="sbar"><span>9:41</span><span>▮▮▮ ▰</span></div>
+              <div class="app">
+                <div><div class="hi">Today</div><div class="h">Calories &amp; <em class="s">habits</em></div></div>
+                <div class="tile"><small>Calories left</small><b>1,240 kcal</b>
+                  <div class="bars" style="height:30px"><i style="height:100%;background:var(--ring-a)"></i><i style="height:70%;background:var(--ring-a)"></i><i style="height:40%;background:var(--ring-a)"></i></div></div>
+                <div class="tiles">
+                  <div class="tile"><small>Sleep</small><div class="ring" style="--p:91;--c:var(--ring-b)"></div><b>7h 45m</b></div>
+                  <div class="tile"><small>Water</small><div class="ring" style="--p:60;--c:var(--ring-c)"></div><b>6 / 10</b></div>
+                </div>
+                <div class="tile"><small>AI coach</small><span style="font-size:11px;line-height:1.4">You slept better on days you walked 8k+ steps. Try an evening walk today.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta"><span class="eyebrow">iOS app · 2025 – present</span><a class="arrow" href="https://apps.apple.com/us/app/primefit-habits-weight-loss/id6759244969" target="_blank" rel="noopener" aria-label="Open Primefit on the App Store">↗</a></div>
+          <h3>Primefit: Habits &amp; <em class="s">Weight Loss</em></h3>
+          <p>An AI-powered fitness and habit coach that helps people build healthier routines with personalised guidance. It tracks calories, steps, sleep, hydration and nutrition, and adds habit-consistency tools on top. The interface is clean and motivating, built around long-term progress instead of quick fixes.</p>
+          <div class="tags"><span class="chip">SwiftUI</span><span class="chip">HealthKit</span><span class="chip">AI integration</span><span class="chip">StoreKit</span><span class="chip">Push notifications</span></div>
+          <div class="btns"><a class="link" href="https://apps.apple.com/us/app/primefit-habits-weight-loss/id6759244969" target="_blank" rel="noopener">App Store ↗</a></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="vis">
+          <span class="lbl">02 / DEVELOPER SDK</span>
+          <div class="flow">
+            <div class="node"><small>Your app</small><code>Create a short link</code></div>
+            <div class="arr">↓</div>
+            <div class="node a"><small>Short.io SDK</small><code>yourbrand.link/x7Kp</code></div>
+            <div class="arr">↓</div>
+            <div class="node"><small>Universal Link</small><code>Opens the right screen in the app</code></div>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta"><span class="eyebrow">iOS SDK · Swift Package</span></div>
+          <h3>Short.io <em class="s">SDK</em></h3>
+          <p>A third-party SDK that brings Short.io into any iOS app. Developers generate short links from code and route people straight into the app through Universal Links. Install it with Swift Package Manager or add it manually.</p>
+          <div class="tags"><span class="chip">Swift</span><span class="chip">Swift Package Manager</span><span class="chip">Universal Links</span><span class="chip">Deep linking</span></div>
+          <div class="btns"><a class="link" href="https://github.com/AsadJav" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="vis">
+          <span class="lbl">03 / CLIENT WORK · AA’LA SOLUTIONS</span>
+          <div class="ble">
+            <div class="dev"><div class="ic">◎</div><b>Central</b><small>Scans, connects, reads &amp; writes</small></div>
+            <div class="waves" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="dev"><div class="ic">⌁</div><b>Peripheral</b><small>Advertises services &amp; characteristics</small></div>
+            <div class="ble-cap">CORE BLUETOOTH · DEVICE TO DEVICE</div>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta"><span class="eyebrow">Client apps · 2023 – 2025</span></div>
+          <h3>Bluetooth LE <em class="s">apps</em></h3>
+          <p>Two Bluetooth Low Energy apps. The Central app finds and talks to BLE devices such as fitness trackers and heart-rate monitors. The Peripheral app turns an iPhone or iPad into a Bluetooth device that shares data with other devices nearby.</p>
+          <div class="tags"><span class="chip">Swift</span><span class="chip">Core Bluetooth</span><span class="chip">BLE Central</span><span class="chip">BLE Peripheral</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="more-head"><div class="eyebrow">More client work · AA’LA Solutions</div></div>
+    <div class="more">
+      <article class="mini">
+        <div class="viz"><div class="pros" aria-hidden="true">
+          <div>Plumber <span>Available</span></div><div>Handyman <span>Available</span></div><div>Cleaner <span>Today</span></div><div>Graphic designer <span>Remote</span></div>
+        </div></div>
+        <div class="txt">
+          <span class="eyebrow">04 / Marketplace app</span>
+          <h3>I Got A <em class="s">Guy</em></h3>
+          <p>Connects people with the professional they need: contractors, handymen, plumbers, cleaners, graphic designers and more.</p>
+        </div>
+      </article>
+      <article class="mini">
+        <div class="viz"><div class="vcard" aria-hidden="true">
+          <small>VIRTUAL ACCESS CARD</small><b>Lobby · Floor 12</b><div class="row"><small>5DKEY · VERROO</small><span>◉</span></div>
+        </div></div>
+        <div class="txt">
+          <span class="eyebrow">05 / vCard wallet apps</span>
+          <h3>5DKey &amp; <em class="s">Verroo</em></h3>
+          <p>Wallets for virtual proximity cards (vCards) that let building managers hand out or recall access instantly.</p>
+        </div>
+      </article>
+      <article class="mini">
+        <div class="viz"><div class="ledger" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="r"><span>Office rent</span><span>Deductible</span></div>
+          <div class="r"><span>Software</span><span>Deductible</span></div>
+          <div class="r"><span>Client lunch</span><span>Review</span></div>
+          <div class="r"><span>Stripe payout</span><span>Income</span></div>
+        </div></div>
+        <div class="txt">
+          <span class="eyebrow">06 / Web view app</span>
+          <h3><em class="s">Xendoo</em></h3>
+          <p>A mobile app for Xendoo’s bookkeeping service, which categorises and reconciles monthly business transactions with an eye on tax savings.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="num"><b>04</b> — THE JOURNEY</div>
+      <h2>Experience that<br><em class="s">ships.</em></h2>
+      <p class="lead">From client projects to owning a product on the App Store.</p>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="yr">2025<small>December 2025 – Present</small></div>
+        <div class="body">
+          <div class="kind">CURRENT ROLE</div>
+          <h3>iOS App Developer</h3>
+          <div class="org">Primefit · Lahore, Pakistan</div>
+          <ul>
+            <li>Build and maintain the iOS app in Swift and SwiftUI with a focus on smooth, scalable features.</li>
+            <li>Keep the codebase clean and readable so new features land without slowing the team down.</li>
+            <li>Tune performance and interfaces for responsiveness across iOS versions and devices.</li>
+            <li>Own App Store submissions: metadata, certificates and provisioning profiles.</li>
+          </ul>
+          <div class="tags"><span class="chip">Swift</span><span class="chip">SwiftUI</span><span class="chip">HealthKit</span><span class="chip">App Store Connect</span><span class="chip">TestFlight</span></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="yr">2023<small>May 2023 – December 2025</small></div>
+        <div class="body">
+          <div class="kind">iOS ENGINEERING</div>
+          <h3>iOS &amp; React Native Developer</h3>
+          <div class="org">AA’LA Solutions · Lahore, Pakistan</div>
+          <ul>
+            <li>Designed and built native iOS apps from concept to App Store release.</li>
+            <li>Integrated REST APIs with URLSession and Alamofire for real-time sync.</li>
+            <li>Used Core Data and SQLite for local storage, with tuned fetching and caching.</li>
+            <li>Added push notifications with Firebase Cloud Messaging, lifting engagement by 30%.</li>
+            <li>Shipped in-app purchases and subscriptions with StoreKit.</li>
+            <li>Built BLE apps in both Central and Peripheral roles.</li>
+            <li>Built cross-platform apps in React Native with Redux Toolkit, Firebase and native modules bridged to Swift.</li>
+            <li>Shipped I Got A Guy, 5DKey, Verroo, Xendoo and the Short.io SDK.</li>
+          </ul>
+          <div class="tags"><span class="chip">UIKit</span><span class="chip">SwiftUI</span><span class="chip">Core Data</span><span class="chip">Alamofire</span><span class="chip">Firebase</span><span class="chip">Core Bluetooth</span><span class="chip">React Native</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="edu">
+      <div class="panel">
+        <div class="eyebrow">Education</div>
+        <h3>BS, Computer <em class="s">Science</em></h3>
+        <p>COMSATS University Islamabad · 2019 – 2023<br>Islamabad, Pakistan</p>
+        <p style="padding-top:12px;border-top:1px solid var(--line)"><b style="color:var(--ink)">F.Sc (Pre-Engineering)</b><br>Concordia College, Mandi Bahauddin · 2016 – 2018</p>
+      </div>
+      <div class="panel">
+        <div class="eyebrow">Beyond the day job</div>
+        <h3>Open source &amp; <em class="s">community</em></h3>
+        <p>Contributor to open-source projects on GitHub and a developer advocate for iOS communities. Active in Lahore’s iOS scene, sharing what I learn and mentoring junior developers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTS -->
+<section id="moments" class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="num"><b>05</b> — PROUD MOMENTS</div>
+      <h2>Small steps.<br><em class="s">Meaningful milestones.</em></h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3+</b><span>Years building for iOS</span></div>
+      <div class="stat"><b>30%</b><span>More engagement from push</span></div>
+      <div class="stat"><b>8+</b><span>Apps &amp; SDKs built</span></div>
+      <div class="stat"><b><em class="s">Live</em></b><span>On the App Store</span></div>
+    </div>
+    <div class="mcards">
+      <div class="mcard dark"><div class="k">RECOGNITION</div><h3>Trusted to <em class="s">deliver.</em></h3><p>Recognised for exceptional performance at both AA’LA Solutions and Primefit for shipping high-impact iOS apps.</p></div>
+      <div class="mcard"><div class="big">30%</div><div class="k">MORE ENGAGEMENT</div><h3>The right nudge.</h3><p>Firebase Cloud Messaging brought users back more often across client apps.</p></div>
+      <div class="mcard"><div class="big" style="color:var(--accent)">✦</div><div class="k">TECHNOLOGY WITH PURPOSE</div><h3>Healthier habits.</h3><p>Primefit turns steps, sleep, water and food into guidance people can act on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="wrap contact">
+    <div class="contact-copy">
+      <div class="sec-head" style="margin:0"><div class="num"><b>06</b> — YOUR NEXT APP</div><div class="eyebrow">Starts with a hello</div></div>
+      <h2>Let’s build<br><em class="s">something together.</em></h2>
+      <p>Have an app idea, a codebase that needs care, or a team that wants a native iOS developer? Let’s talk.</p>
+      <div class="lines">
+        <div><span id="email">asadjaved9490@gmail.com</span><button class="copy" data-copy="asadjaved9490@gmail.com">Copy</button></div>
+        <div><span>+92 318 2229490</span><button class="copy" data-copy="+923182229490">Copy</button></div>
+        <div><span>Lahore, Pakistan · Open to remote</span><span aria-hidden="true">↗</span></div>
+      </div>
+      <div class="socials">
+        <a class="link" href="https://wa.me/923182229490" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a class="link" href="https://www.linkedin.com/in/asadjav" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="link" href="https://github.com/AsadJav" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="link" href="resume.pdf" target="_blank" rel="noopener">Résumé ↓</a>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <div class="row2">
+        <label for="f-name">Your name<input id="f-name" required placeholder="Jane Appleseed"></label>
+        <label for="f-email">Email address<input id="f-email" type="email" required placeholder="jane@company.com"></label>
+      </div>
+      <label for="f-phone">Phone (optional)<input id="f-phone" type="tel" placeholder="+1 555 0100"></label>
+      <label for="f-msg">What do you have in mind?<textarea id="f-msg" required placeholder="A SwiftUI app for…"></textarea></label>
+      <button class="btn" type="submit" style="justify-self:start">Send message <span class="ar">↗</span></button>
+      <p class="form-note" id="note">This opens your email app with the message filled in.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Asad Javed Sulemani</span><span>Designed &amp; built in Lahore · Swift at heart</span></div></footer>
+
+<script>
+const kit=[
+ ["Swift","lang","#F05138","Sw","Main language for every app I ship, from SwiftUI views to networking layers."],
+ ["SwiftUI","ios","#1E6FF0","UI","Primary UI framework at Primefit for the dashboard, trackers and habit flows."],
+ ["UIKit","ios","#3A4A6B","Ui","Client apps at AA’LA Solutions, and bridging into SwiftUI where it fits better."],
+ ["Combine","ios","#7A4DE0","Cb","Reactive data flow between view models and views."],
+ ["HealthKit","ios","#F2416B","♥","Steps, sleep and activity data powering Primefit’s insights."],
+ ["StoreKit","ios","#2A9D5C","$","In-app purchases and subscription models that drove revenue for client apps."],
+ ["Bluetooth","ios","#2D7FF9","ᛒ","Core Bluetooth apps in Central and Peripheral roles for device-to-device communication."],
+ ["Face ID","ios","#4B5568","◉","LocalAuthentication for Face ID and Touch ID sign-in."],
+ ["App Intents","ios","#5E5CE6","Ai","Exposing app actions to the system with the App Intents framework."],
+ ["Core Data","data","#6E59A5","CD","Persistent local storage with tuned fetching and caching."],
+ ["Realm","data","#E0507A","R","Fast object storage for offline-first features."],
+ ["SQLite","data","#2F6E8F","SQ","Local relational storage where a lightweight store fits best."],
+ ["Alamofire","data","#D1492E","Af","REST API layer alongside URLSession and Codable."],
+ ["Firebase","data","#F5A623","Fb","Auth, Firestore, Analytics and Crashlytics, plus Cloud Messaging for push, which lifted engagement by 30%."],
+ ["Keychain","data","#5B6475","⌘","Secure storage for tokens and credentials."],
+ ["Xcode","tools","#1B8CF5","X","Home base: building, profiling with Instruments and debugging."],
+ ["TestFlight","tools","#13A4E0","TF","Beta builds to testers before every App Store release."],
+ ["CocoaPods","tools","#B5322E","Cp","Dependency management in UIKit and React Native iOS projects."],
+ ["SPM","tools","#E8603C","📦","Shipping the Short.io SDK as a Swift package and managing dependencies."],
+ ["Git","tools","#E44C30","⎇","Version control on GitHub and GitLab."],
+ ["Play Console","tools","#34A853","▶","Publishing Android builds of React Native apps to Google Play."],
+ ["React Native","rn","#149ECA","RN","Cross-platform apps with the React Native CLI, plus native modules bridged to Swift."],
+ ["Expo","rn","#1B1F23","Ex","Quick React Native builds and previews on real devices."],
+ ["Redux","rn","#764ABC","Rx","Redux Toolkit and Context API for app state."],
+ ["JavaScript","lang","#D9B400","JS","The language under every React Native app, with Axios and Fetch for APIs."],
+ ["TypeScript","lang","#3178C6","TS","Typed JavaScript for React Native projects."],
+ ["Python","lang","#3A6E9F","Py","Scripts and small backend utilities."],
+ ["MVVM","practice","#10172A","MV","Default architecture: testable view models, thin views."],
+ ["SOLID","practice","#A96212","S","Design principles that keep features easy to change."],
+ ["XCTest","practice","#2E8B57","✓","Unit and UI tests that guard releases."]
+];
+const icons=document.getElementById('icons'),detail=document.getElementById('detail');
+const names={lang:"Languages",ios:"iOS frameworks",rn:"React Native",data:"Data & network",tools:"Tools",practice:"Practices"};
+kit.forEach(([n,c,col,g,d],i)=>{
+  const b=document.createElement('button');b.className='ico';b.dataset.c=c;b.type='button';
+  b.innerHTML=`<span class="sq" style="background:${col}">${g}</span><span>${n}</span>`;
+  b.setAttribute('aria-label',n);
+  b.onclick=()=>{document.querySelectorAll('.ico').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');
+    detail.innerHTML=`<div class="cat">${names[c]}</div><h3>${n}</h3><p>${d}</p>`;};
+  icons.appendChild(b);
+});
+document.getElementById('filters').addEventListener('click',e=>{
+  const f=e.target.dataset.f;if(!f)return;
+  document.querySelectorAll('#filters button').forEach(b=>b.classList.toggle('on',b===e.target));
+  document.querySelectorAll('.ico').forEach(i=>i.classList.toggle('dim',f!=='all'&&i.dataset.c!==f));
+});
+document.getElementById('badge').onclick=e=>e.currentTarget.classList.toggle('flip');
+
+document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{
+  try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent='Copied';}
+  catch{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
+  setTimeout(()=>b.textContent='Copy',1600);
+});
+
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=document.getElementById('f-name').value.trim(),m=document.getElementById('f-email').value.trim(),
+        p=document.getElementById('f-phone').value.trim(),t=document.getElementById('f-msg').value.trim(),note=document.getElementById('note');
+  if(!n||!m||!t){note.innerHTML='<b>Add your name, email and a short message first.</b>';return;}
+  const body=`${t}\n\n— ${n}\n${m}${p?'\n'+p:''}`;
+  location.href=`mailto:asadjaved9490@gmail.com?subject=${encodeURIComponent('Hello from '+n)}&body=${encodeURIComponent(body)}`;
+  note.innerHTML='If your email app didn’t open, write to <b>asadjaved9490@gmail.com</b> directly.';
+});
+
+const links=[...document.querySelectorAll('#pill a')];
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id));}}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section').forEach(s=>io.observe(s));
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
