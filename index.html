@@ -20,10 +20,7 @@
   --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
   --r:22px;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0F131C; --surface:#151A26; --card:#1A2030; --ink:#EEEAE0; --muted:#9CA1B0;
-  --line:rgba(238,234,224,.12); --ghost:rgba(238,234,224,.045); --accent:#DE9B52; --accent-soft:rgba(222,155,82,.14);
-  --phone:#05070C; --screen:#1C2232; --screen-2:#242B3D; color-scheme:dark}}
+/* Light is the default; dark only applies when the visitor picks it with the sun/moon button. */
 :root[data-theme="dark"]{
   --bg:#0F131C; --surface:#151A26; --card:#1A2030; --ink:#EEEAE0; --muted:#9CA1B0;
   --line:rgba(238,234,224,.12); --ghost:rgba(238,234,224,.045); --accent:#DE9B52; --accent-soft:rgba(222,155,82,.14);
@@ -49,11 +46,18 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--acce
 .logo{pointer-events:auto;width:46px;height:46px;flex:none;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:800;font-size:15px;text-decoration:none;letter-spacing:-.02em}
 .logo{position:relative;line-height:1}
 .logo span{position:absolute;right:7px;top:50%;transform:translateY(-50%);color:var(--accent)}
-.pill{pointer-events:auto;display:flex;gap:2px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 8px 30px rgba(16,23,42,.06);overflow-x:auto;scrollbar-width:none;max-width:calc(100vw - 100px)}
+.pill{pointer-events:auto;display:flex;gap:2px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 8px 30px rgba(16,23,42,.06);overflow-x:auto;scrollbar-width:none;max-width:calc(100vw - 180px)}
 .pill::-webkit-scrollbar{display:none}
 .pill a{font-size:13.5px;font-weight:500;text-decoration:none;padding:8px 15px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
 .pill a:hover{background:var(--ghost)}
 .pill a.on{background:var(--ink);color:var(--bg)}
+.navr{display:flex;align-items:center;gap:10px;min-width:0}
+.theme{pointer-events:auto;flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0;box-shadow:0 8px 30px rgba(16,23,42,.06);transition:transform .2s,background .2s}
+.theme:hover{transform:rotate(18deg)}
+.theme svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.theme .sun{display:none}
+:root[data-theme="dark"] .theme .sun{display:block}
+:root[data-theme="dark"] .theme .moon{display:none}
 
 /* buttons */
 .btns{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px}
@@ -230,8 +234,8 @@ section{scroll-margin-top:90px}
 /* journey */
 .timeline{display:grid;gap:0;position:relative}
 .step{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:44px 0;border-top:1px solid var(--line)}
-.step .yr{font-size:clamp(48px,6vw,76px);font-weight:800;letter-spacing:-.06em;line-height:.9;color:var(--ghost);-webkit-text-stroke:1px var(--line)}
-.step .yr small{display:block;font-size:12px;letter-spacing:.1em;color:var(--muted);-webkit-text-stroke:0;font-weight:600;margin-top:12px;line-height:1.4}
+.step .yr{font-size:clamp(48px,6vw,76px);font-weight:800;letter-spacing:-.06em;line-height:.9;color:var(--accent)}
+.step .yr small{display:block;font-size:12px;letter-spacing:.1em;color:var(--muted);font-weight:600;margin-top:12px;line-height:1.4}
 .step .body{display:grid;gap:14px;min-width:0}
 .step .kind{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--accent)}
 .step h3{font-size:clamp(26px,3vw,36px)}
@@ -308,10 +312,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
 }
 </style>
 
+<script>
+try{if(localStorage.getItem('aj-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}
+</script>
+
 <nav class="nav" aria-label="Main">
   <a class="logo" href="#home" aria-label="Back to top">AJ<span>·</span></a>
-  <div class="pill" id="pill">
-    <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#moments">Proud moments</a><a href="#contact">Contact</a>
+  <div class="navr">
+    <div class="pill" id="pill">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#moments">Proud moments</a><a href="#contact">Contact</a>
+    </div>
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode" title="Switch light / dark mode">
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -724,6 +738,16 @@ document.getElementById('filters').addEventListener('click',e=>{
   document.querySelectorAll('#filters button').forEach(b=>b.classList.toggle('on',b===e.target));
   document.querySelectorAll('.ico').forEach(i=>i.classList.toggle('dim',f!=='all'&&i.dataset.c!==f));
 });
+const themeBtn=document.getElementById('theme');
+function syncTheme(){const d=document.documentElement.getAttribute('data-theme')==='dark';
+  themeBtn.setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode');}
+themeBtn.onclick=()=>{
+  const d=document.documentElement.getAttribute('data-theme')==='dark';
+  if(d)document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme','dark');
+  try{localStorage.setItem('aj-theme',d?'light':'dark')}catch(e){}
+  syncTheme();
+};
+syncTheme();
 document.getElementById('badge').onclick=e=>e.currentTarget.classList.toggle('flip');
 
 document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{
