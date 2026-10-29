@@ -682,7 +682,8 @@ try{if(localStorage.getItem('aj-theme')==='dark')document.documentElement.setAtt
       <label for="f-phone">Phone (optional)<input id="f-phone" type="tel" placeholder="+1 555 0100"></label>
       <label for="f-msg">What do you have in mind?<textarea id="f-msg" required placeholder="A SwiftUI app for…"></textarea></label>
       <button class="btn" type="submit" style="justify-self:start">Send message <span class="ar">↗</span></button>
-      <p class="form-note" id="note">This opens your email app with the message filled in.</p>
+      <input type="checkbox" id="f-bot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+      <p class="form-note" id="note" aria-live="polite">Your message goes straight to my inbox.</p>
     </form>
   </div>
 </section>
@@ -762,9 +763,17 @@ document.getElementById('form').addEventListener('submit',e=>{
   const n=document.getElementById('f-name').value.trim(),m=document.getElementById('f-email').value.trim(),
         p=document.getElementById('f-phone').value.trim(),t=document.getElementById('f-msg').value.trim(),note=document.getElementById('note');
   if(!n||!m||!t){note.innerHTML='<b>Add your name, email and a short message first.</b>';return;}
-  const body=`${t}\n\n— ${n}\n${m}${p?'\n'+p:''}`;
-  location.href=`mailto:asadjaved9490@gmail.com?subject=${encodeURIComponent('Hello from '+n)}&body=${encodeURIComponent(body)}`;
-  note.innerHTML='If your email app didn’t open, write to <b>asadjaved9490@gmail.com</b> directly.';
+  if(document.getElementById('f-bot').checked)return;
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.disabled=true;note.textContent='Sending…';
+  fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+    body:JSON.stringify({access_key:'3812148d-1679-4191-b136-e3836edbaf1f',subject:'New portfolio message from '+n,from_name:'Portfolio',name:n,email:m,phone:p||'Not given',message:t})})
+  .then(r=>r.json()).then(j=>{
+    if(!j.success)throw new Error(j.message);
+    e.target.reset();note.innerHTML='<b>Message sent. Thank you, I’ll reply soon.</b>';
+  }).catch(()=>{
+    note.innerHTML='Couldn’t send that. Please email <b>asadjaved9490@gmail.com</b> directly.';
+  }).finally(()=>{btn.disabled=false;});
 });
 
 const links=[...document.querySelectorAll('#pill a')];
